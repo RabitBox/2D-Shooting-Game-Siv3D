@@ -3,7 +3,7 @@
 
 void Main()
 {
-	Texture mainTexture;
+	Texture* mainTexture;
 	TextureManager& instance = TextureManager::GetInstance();
 	instance.LoadEmoji(U"🦖");
 	instance.TryGetTexture(U"🦖", mainTexture);
@@ -98,7 +98,7 @@ void Main()
 		// プレイヤーを描く | Draw the player
 		emoji.scaled(0.75).mirrored(isPlayerFacingRight).drawAt(playerPosX, 540);
 
-		mainTexture.draw(20, 20);
+		mainTexture->draw(20, 20);
 	}
 }
 

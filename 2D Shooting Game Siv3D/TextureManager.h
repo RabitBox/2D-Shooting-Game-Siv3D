@@ -20,7 +20,7 @@ public:
 	/// @param filePath ファイルパス
 	/// @param outPtr テクスチャへのweak ptr
 	/// @return テクスチャがロード済だったか否か
-	bool TryGetTexture(const PathString& filePath, Texture& outPtr);
+	bool TryGetTexture(const PathString& filePath, Texture*& outPtr);
 
 	/// @brief テクスチャのロード
 	/// @param filePath テクスチャのファイルパス

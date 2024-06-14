@@ -1,16 +1,15 @@
 ﻿#include "stdafx.h"
 #include "TextureManager.h"
-#include "defines.h"
 
 TextureManager::~TextureManager() {
 	// 中身をすべて放棄し、デストラクタを呼ばせる
 	_textures.clear();
 }
 
-bool TextureManager::TryGetTexture(const PathString& filePath, Texture& outPtr) {
+bool TextureManager::TryGetTexture(const PathString& filePath, Texture*& outPtr) {
 	auto it = _textures.find(filePath);
 	if (it != _textures.end()) {
-		outPtr = it->second;
+		outPtr = &it->second;
 		return true;
 	}
 	return false;
