@@ -8,25 +8,33 @@ class TextureManager final
 {
 private:
 	// テクスチャキャッシュ
-	std::unordered_map<std::u32string, std::shared_ptr<Texture>> _textures;
+	std::unordered_map<PathString, Texture> _textures;
+
+private:
+	TextureManager() = default;
+	~TextureManager();
 
 public:
-	TextureManager();
-	~TextureManager() {}
-
 	/// @brief ロード済のテクスチャを取得
 	///			純粋なGET関数はつくらない
 	/// @param filePath ファイルパス
 	/// @param outPtr テクスチャへのweak ptr
 	/// @return テクスチャがロード済だったか否か
-	bool TryGetTexture(const PathString& filePath, std::weak_ptr<Texture> outPtr);
+	bool TryGetTexture(const PathString& filePath, Texture& outPtr);
 
 	/// @brief テクスチャのロード
 	/// @param filePath テクスチャのファイルパス
 	void LoadTexture(const PathString& filePath);
 
+	/// @brief 絵文字のロード
+	/// @param emoji 絵文字
+	void LoadEmoji(const PathString& emoji);
+
 	/// @brief テクスチャをアンロード
 	/// @param filePath テクスチャのファイルパス
 	void UnloadTexture(const PathString& filePath);
+
+public:
+	static TextureManager& GetInstance();
 };
 

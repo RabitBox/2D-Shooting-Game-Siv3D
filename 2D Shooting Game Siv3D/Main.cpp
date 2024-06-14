@@ -1,7 +1,13 @@
 ﻿# include <Siv3D.hpp> // Siv3D v0.6.14
+#include "TextureManager.h"
 
 void Main()
 {
+	Texture mainTexture;
+	TextureManager& instance = TextureManager::GetInstance();
+	instance.LoadEmoji(U"🦖");
+	instance.TryGetTexture(U"🦖", mainTexture);
+
 	// 背景の色を設定する | Set the background color
 	Scene::SetBackground(ColorF{ 0.6, 0.8, 0.7 });
 
@@ -91,6 +97,8 @@ void Main()
 
 		// プレイヤーを描く | Draw the player
 		emoji.scaled(0.75).mirrored(isPlayerFacingRight).drawAt(playerPosX, 540);
+
+		mainTexture.draw(20, 20);
 	}
 }
 
