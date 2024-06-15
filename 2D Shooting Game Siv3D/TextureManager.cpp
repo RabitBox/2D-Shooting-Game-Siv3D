@@ -6,7 +6,7 @@ TextureManager::~TextureManager() {
 	_textures.clear();
 }
 
-bool TextureManager::TryGetTexture(const PathString& filePath, Texture*& outPtr) {
+bool TextureManager::TryGetTexture(const FilePath& filePath, Texture*& outPtr) {
 	auto it = _textures.find(filePath);
 	if (it != _textures.end()) {
 		outPtr = &it->second;
@@ -15,7 +15,7 @@ bool TextureManager::TryGetTexture(const PathString& filePath, Texture*& outPtr)
 	return false;
 }
 
-void TextureManager::LoadTexture(const PathString& filePath) {
+void TextureManager::LoadTexture(const FilePath& filePath) {
 	auto it = _textures.find(filePath);
 	if (it != _textures.end()) {
 		return;
@@ -24,7 +24,7 @@ void TextureManager::LoadTexture(const PathString& filePath) {
 	_textures[filePath] = Texture{ filePath };
 }
 
-void TextureManager::LoadEmoji(const PathString& emoji) {
+void TextureManager::LoadEmoji(const FilePath& emoji) {
 	auto it = _textures.find(emoji);
 	if (it != _textures.end()) {
 		return;
@@ -33,7 +33,7 @@ void TextureManager::LoadEmoji(const PathString& emoji) {
 	_textures[emoji] = Texture{ Emoji(emoji.c_str()) };
 }
 
-void TextureManager::UnloadTexture(const PathString& filePath) {
+void TextureManager::UnloadTexture(const FilePath& filePath) {
 	auto it = _textures.find(filePath);
 	if (it != _textures.end()) {
 		_textures.erase(it);
