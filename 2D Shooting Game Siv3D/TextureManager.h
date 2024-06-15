@@ -13,7 +13,6 @@ private:
 
 public:
 	/// @brief ロード済のテクスチャを取得
-	///			純粋なGET関数はつくらない
 	/// @param filePath ファイルパス
 	/// @param outPtr テクスチャへのweak ptr
 	/// @return テクスチャがロード済だったか否か
