@@ -842,5 +842,8 @@
     <ClInclude Include="IObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="IComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
