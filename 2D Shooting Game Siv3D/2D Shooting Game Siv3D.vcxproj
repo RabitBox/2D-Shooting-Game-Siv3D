@@ -333,6 +333,7 @@
   <ItemGroup>
     <ClInclude Include="defines.h" />
     <ClInclude Include="GameMain.h" />
+    <ClInclude Include="IComponent.h" />
     <ClInclude Include="IObject.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TextureManager.h" />
