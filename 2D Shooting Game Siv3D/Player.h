@@ -7,5 +7,9 @@ public:
 	Player() = delete;
 	Player(GameObject* owner);
 	virtual ~Player();
+
+public:
+	/// @brief 更新処理
+	void update() override;
 };
 

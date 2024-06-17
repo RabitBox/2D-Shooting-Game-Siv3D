@@ -4,12 +4,11 @@
 */
 #pragma once
 
-/// @brief 基本オブジェクト
-class GameObject
-{
-public:
-	class IComponent;
+class IComponent;
 
+/// @brief 基本オブジェクト
+class GameObject final
+{
 protected:
 	/// @brief 状態
 	bool _isActive;
@@ -29,10 +28,10 @@ public:
 
 public:
 	/// @brief 更新
-	virtual void onUpdate() = 0;
+	void onUpdate();
 
 	/// @brief 描画
-	virtual void onDraw() = 0;
+	void onDraw();
 
 public:
 	/// @brief コンポーネント追加
