@@ -4,8 +4,8 @@
 */
 #pragma once
 
-/// @brief 基本オブジェクトインターフェース
-class IObject
+/// @brief 基本オブジェクト
+class GameObject
 {
 public:
 	class IComponent;
@@ -24,8 +24,8 @@ protected:
 	std::vector<std::unique_ptr<IComponent>> _componentList;
 
 public:
-	IObject() = default;
-	virtual ~IObject() = default;
+	GameObject() = default;
+	virtual ~GameObject() = default;
 
 public:
 	/// @brief 更新

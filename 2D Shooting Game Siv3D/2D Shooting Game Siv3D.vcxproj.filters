@@ -136,6 +136,27 @@
     <Filter Include="Resource Files\engine\font\min">
       <UniqueIdentifier>{1b103960-f11a-4515-b4f1-f59333ce00d9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{ce211c90-5f54-413f-8b17-a3a93f016157}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Component">
+      <UniqueIdentifier>{4d72277e-37d5-4746-be5e-76c01975dd72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object">
+      <UniqueIdentifier>{cf81b027-85e1-44ba-812c-786313fd6f43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Player">
+      <UniqueIdentifier>{4b2b093b-6998-4835-9a70-b6e2f3cbdb1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Bullet">
+      <UniqueIdentifier>{bd3d9759-8ae0-4e02-b932-b6a3d2f05c77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\System">
+      <UniqueIdentifier>{0c975696-87ab-4059-894c-acf6b5bd7e7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\System\Texture">
+      <UniqueIdentifier>{f7096873-9b14-439f-97b5-440b654ff909}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -144,17 +165,20 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TextureManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GameMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TexturePacker.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Game\Object</Filter>
     </ClCompile>
-    <ClCompile Include="IObject.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="TexturePacker.cpp">
+      <Filter>Game\System\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Game\System\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Game\Object\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -827,23 +851,26 @@
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="defines.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameMain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TexturePacker.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IObject.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="GameObject.h">
+      <Filter>Game\Object</Filter>
     </ClInclude>
     <ClInclude Include="IComponent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Game\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Game\System\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="TexturePacker.h">
+      <Filter>Game\System\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Game\Object\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

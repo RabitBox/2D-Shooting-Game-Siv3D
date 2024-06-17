@@ -4,19 +4,18 @@
 */
 #pragma once
 
+// 前方宣言
+class GameObject;
+
 class IComponent
 {
-public:
-	// 前方宣言
-	class IObject;
-
 protected:
 	/// @brief 所有者
-	IObject* _owner;
+	GameObject* _owner;
 
 public:
 	IComponent() = delete;
-	IComponent(IObject* owner) : _owner(owner) {}
+	IComponent(GameObject* owner) : _owner(owner) {}
 	virtual ~IComponent() = default;
 
 public:
