@@ -1,6 +1,6 @@
 ﻿/**
 * ゲームオブジェクトの基本クラス
-* コンポーネントを追加することで、機能を増やしていく。
+* コンポーネントを追加することで、機能を増やしていく
 */
 #pragma once
 
@@ -12,12 +12,6 @@ class GameObject final
 protected:
 	/// @brief 状態
 	bool _isActive;
-
-	/// @brief 座標
-	Vec2 _position;
-
-	/// @brief 角度
-	double _angle;
 
 	/// @brief 所有コンポーネント
 	std::vector<std::unique_ptr<IComponent>> _componentList;

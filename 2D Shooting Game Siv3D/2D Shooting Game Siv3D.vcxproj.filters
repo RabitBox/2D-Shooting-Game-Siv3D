@@ -157,6 +157,9 @@
     <Filter Include="Game\System\Texture">
       <UniqueIdentifier>{f7096873-9b14-439f-97b5-440b654ff909}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Component\Transform2D">
+      <UniqueIdentifier>{91ee8d65-9787-409f-8ffe-2dd7787b5f9b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -179,6 +182,9 @@
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Game\Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform2D.cpp">
+      <Filter>Game\Component\Transform2D</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -871,6 +877,9 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Game\Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform2D.h">
+      <Filter>Game\Component\Transform2D</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

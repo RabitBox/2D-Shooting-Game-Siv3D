@@ -1,7 +1,12 @@
-﻿#pragma once
+﻿/**
+* プレイヤーキャラの根幹コンポーネント
+* プレイヤーキャラの根幹制御
+*/
+#pragma once
 #include "IComponent.h"
 
-class Player final: public IComponent
+/// @brief プレイヤーコンポーネント
+class Player final : public IComponent
 {
 public:
 	Player() = delete;
