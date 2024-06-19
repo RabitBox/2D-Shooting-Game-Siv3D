@@ -36,12 +36,24 @@ public:
 	/// @tparam T 追加したいコンポーネント
 	/// @return 追加したコンポーネント
 	template<class T>
-	T* addComponent();
+	T* addComponent() {
+		_componentList.emplace_back(std::make_unique<T>(this));
+		auto ptr = _componentList.back();
+		return ptr.get();
+	}
 
 	/// @brief コンポーネント取得
 	/// @tparam T 取得したいコンポーネント
 	/// @return 取得したコンポーネント
 	template<class T>
-	T* getComponent();
+	T* getComponent() {
+		for (auto& component : _componentList) {
+			auto ptr = dynamic_cast<T*>(component.get());
+			if (ptr != nullptr) {
+				return ptr;
+			}
+		}
+		return nullptr;
+	}
 };
 
