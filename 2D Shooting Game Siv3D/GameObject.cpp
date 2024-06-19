@@ -9,7 +9,9 @@ void GameObject::onUpdate() {
 }
 
 void GameObject::onDraw() {
-
+	for (auto& component : _componentList) {
+		component.get()->draw();
+	}
 }
 
 template<class T>
