@@ -27,6 +27,10 @@ public:
 	/// @brief 描画
 	void onDraw();
 
+	/// @brief 状態取得
+	/// @return 状態
+	bool getIsActive() { return _isActive; }
+
 public:
 	/// @brief コンポーネント追加
 	/// @tparam T 追加したいコンポーネント
