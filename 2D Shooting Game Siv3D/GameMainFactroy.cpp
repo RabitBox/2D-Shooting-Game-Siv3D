@@ -11,8 +11,7 @@ std::unique_ptr<GameObject> GameMainFactroy::create(Game::Main::ObjectType objTy
 
 	std::unique_ptr<GameObject> gameObject = std::make_unique<GameObject>();
 
-	switch (objType)
-	{
+	switch (objType) {
 	case ObjectType::kPlayer: {
 		gameObject->addComponent<Transform2D>();
 		gameObject->addComponent<Player>();
