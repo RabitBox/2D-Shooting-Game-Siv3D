@@ -38,8 +38,8 @@ public:
 	template<class T>
 	T* addComponent() {
 		_componentList.emplace_back(std::make_unique<T>(this));
-		auto ptr = _componentList.back();
-		return ptr.get();
+		auto& ptr = _componentList.back();
+		return  dynamic_cast<T*>( ptr.get() );
 	}
 
 	/// @brief コンポーネント取得

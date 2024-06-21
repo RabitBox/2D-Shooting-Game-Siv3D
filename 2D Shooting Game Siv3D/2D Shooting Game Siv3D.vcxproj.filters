@@ -190,7 +190,10 @@
       <Filter>Game\Component\Transform2D</Filter>
     </ClCompile>
     <ClCompile Include="IFactory.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Game\System\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMainFactroy.cpp">
+      <Filter>Game\System\Factory</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -888,7 +891,10 @@
       <Filter>Game\Component\Transform2D</Filter>
     </ClInclude>
     <ClInclude Include="IFactory.h">
-      <Filter>Header Files</Filter>
+      <Filter>Game\System\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMainFactroy.h">
+      <Filter>Game\System\Factory</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

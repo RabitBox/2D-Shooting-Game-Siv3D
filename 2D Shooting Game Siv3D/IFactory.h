@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+class GameObject;
+
 template<typename T>
 class IFactory
 {
@@ -8,6 +10,6 @@ public:
 	virtual ~IFactory() = default;
 
 public:
-	virtual std::unique_ptr<T> create() = 0;
+	virtual std::unique_ptr<GameObject> create(T objType) = 0;
 };
 

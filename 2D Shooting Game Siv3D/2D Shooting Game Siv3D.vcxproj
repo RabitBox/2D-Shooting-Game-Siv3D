@@ -116,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GameMain.cpp" />
+    <ClCompile Include="GameMainFactroy.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="IFactory.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -336,6 +337,7 @@
   <ItemGroup>
     <ClInclude Include="defines.h" />
     <ClInclude Include="GameMain.h" />
+    <ClInclude Include="GameMainFactroy.h" />
     <ClInclude Include="IComponent.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="IFactory.h" />
