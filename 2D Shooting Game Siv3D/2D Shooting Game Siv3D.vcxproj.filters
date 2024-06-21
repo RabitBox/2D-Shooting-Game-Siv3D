@@ -160,6 +160,9 @@
     <Filter Include="Game\Component\Transform2D">
       <UniqueIdentifier>{91ee8d65-9787-409f-8ffe-2dd7787b5f9b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\System\Factory">
+      <UniqueIdentifier>{2b30c170-db17-4c91-a582-f709300d5706}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -185,6 +188,9 @@
     </ClCompile>
     <ClCompile Include="Transform2D.cpp">
       <Filter>Game\Component\Transform2D</Filter>
+    </ClCompile>
+    <ClCompile Include="IFactory.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -880,6 +886,9 @@
     </ClInclude>
     <ClInclude Include="Transform2D.h">
       <Filter>Game\Component\Transform2D</Filter>
+    </ClInclude>
+    <ClInclude Include="IFactory.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
