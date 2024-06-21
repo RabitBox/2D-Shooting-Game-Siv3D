@@ -9,7 +9,7 @@
 std::unique_ptr<GameObject> GameMainFactroy::create(Game::Main::ObjectType objType) {
 	using namespace Game::Main;
 
-	std::unique_ptr<GameObject> gameObject;
+	std::unique_ptr<GameObject> gameObject = std::make_unique<GameObject>();
 
 	switch (objType)
 	{
@@ -23,5 +23,5 @@ std::unique_ptr<GameObject> GameMainFactroy::create(Game::Main::ObjectType objTy
 	} break;
 	}
 
-	return gameObject;
+	return std::move( gameObject );	// 所有権を呼び出し元に渡す
 }
