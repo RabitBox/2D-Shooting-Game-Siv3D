@@ -27,9 +27,9 @@ public:
 	/// @brief 描画
 	void onDraw();
 
-	/// @brief 状態取得
-	/// @return 状態
-	bool getIsActive() { return _isActive; }
+public:
+	bool getActive() { return _isActive; }
+	void setActive(bool active) { _isActive = active; };
 
 public:
 	/// @brief コンポーネント追加
