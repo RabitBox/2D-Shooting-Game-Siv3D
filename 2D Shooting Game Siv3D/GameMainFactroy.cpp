@@ -1,6 +1,4 @@
 ﻿#include "stdafx.h"
-#include "GameObject.h"
-#include "IComponent.h"
 #include "GameMainFactroy.h"
 #include "Transform2D.h"
 #include "Player.h"

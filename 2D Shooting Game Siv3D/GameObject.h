@@ -11,7 +11,7 @@ class GameObject final
 {
 protected:
 	/// @brief 状態
-	bool _isActive;
+	bool _isActive = true;
 
 	/// @brief 所有コンポーネント
 	std::vector<std::unique_ptr<IComponent>> _componentList;

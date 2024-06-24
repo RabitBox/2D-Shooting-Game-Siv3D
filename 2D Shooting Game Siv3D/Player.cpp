@@ -1,7 +1,5 @@
 ﻿#include "stdafx.h"
 #include "Player.h"
-#include "GameObject.h"
-#include "Transform2D.h"
 #include "TextureManager.h"
 
 Player::Player(GameObject* owner)
