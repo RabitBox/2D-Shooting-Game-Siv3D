@@ -163,6 +163,9 @@
     <Filter Include="Game\System\Factory">
       <UniqueIdentifier>{2b30c170-db17-4c91-a582-f709300d5706}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Object\Boss">
+      <UniqueIdentifier>{6f6e3d85-9085-4881-bc98-376a61f8799e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -194,6 +197,9 @@
     </ClCompile>
     <ClCompile Include="GameMainFactroy.cpp">
       <Filter>Game\System\Factory</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss.cpp">
+      <Filter>Game\Object\Boss</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -895,6 +901,9 @@
     </ClInclude>
     <ClInclude Include="GameMainFactroy.h">
       <Filter>Game\System\Factory</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss.h">
+      <Filter>Game\Object\Boss</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -4,6 +4,7 @@
 #include "GameMainFactroy.h"
 #include "Transform2D.h"
 #include "Player.h"
+#include "Boss.h"
 
 
 std::unique_ptr<GameObject> GameMainFactroy::create(Game::Main::ObjectType objType) {
@@ -19,6 +20,7 @@ std::unique_ptr<GameObject> GameMainFactroy::create(Game::Main::ObjectType objTy
 
 	case ObjectType::kBoss: {
 		gameObject->addComponent<Transform2D>();
+		gameObject->addComponent<Boss>();
 	} break;
 
 	default: {
