@@ -21,8 +21,9 @@ public:
 	virtual ~Transform2D() = default;
 
 public:
-	Vec2	getPosition() { return _position; }
-	void	setPosition(Vec2 position) { _position = position; }
+	Vec2	getPosition() noexcept { return _position; }
+	void	setPosition(const Vec2& position) noexcept { _position = position; }
+	void	addPosition(const Vec2& position) noexcept { _position += position; }
 
 	double	getAngle() { return _angle; }
 	void	setAngle(double angle) { _angle = angle; }

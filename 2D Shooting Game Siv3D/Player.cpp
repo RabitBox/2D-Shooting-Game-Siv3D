@@ -19,7 +19,25 @@ Player::~Player() {
 }
 
 void Player::update() {
+	int x = 0, y = 0;
+	if ( KeyRight.pressed() ) {
+		x = 1;
+	} else if( KeyLeft.pressed() ){
+		x = -1;
+	}
 
+	if ( KeyDown.pressed() ) {
+		y = 1;
+	} else if( KeyUp.pressed() ){
+		y = -1;
+	}
+
+	if ( _transform ) {
+		if ( x || y ) {
+			auto vec = Vec2{ x, y }.normalized();
+			_transform->addPosition( vec );
+		}
+	}
 }
 
 void Player::draw() {
