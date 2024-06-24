@@ -166,6 +166,9 @@
     <Filter Include="Game\Object\Boss">
       <UniqueIdentifier>{6f6e3d85-9085-4881-bc98-376a61f8799e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\System\BulletGenerator">
+      <UniqueIdentifier>{e59a8dfc-b67c-4923-871f-8004863b6f9c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -200,6 +203,9 @@
     </ClCompile>
     <ClCompile Include="Boss.cpp">
       <Filter>Game\Object\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletGenerator.cpp">
+      <Filter>Game\System\BulletGenerator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -904,6 +910,9 @@
     </ClInclude>
     <ClInclude Include="Boss.h">
       <Filter>Game\Object\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletGenerator.h">
+      <Filter>Game\System\BulletGenerator</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

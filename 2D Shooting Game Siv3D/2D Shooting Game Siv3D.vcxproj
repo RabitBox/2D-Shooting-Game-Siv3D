@@ -116,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Boss.cpp" />
+    <ClCompile Include="BulletGenerator.cpp" />
     <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="GameMainFactroy.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -337,6 +338,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Boss.h" />
+    <ClInclude Include="BulletGenerator.h" />
     <ClInclude Include="defines.h" />
     <ClInclude Include="GameMain.h" />
     <ClInclude Include="GameMainFactroy.h" />
