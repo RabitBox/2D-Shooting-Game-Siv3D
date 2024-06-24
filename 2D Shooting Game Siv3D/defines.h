@@ -3,7 +3,8 @@
 namespace Game{
 	namespace Main{
 		enum class ObjectType {
-			kPlayer
+			kPlayer,
+			kBoss,
 		};
 	};
 };

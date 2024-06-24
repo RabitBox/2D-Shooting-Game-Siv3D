@@ -12,6 +12,12 @@ Player::Player(GameObject* owner)
 	manager.LoadEmoji( U"🦖" );
 	manager.TryGetTexture(U"🦖", _mainTexture);
 	_transform = owner->getComponent<Transform2D>();
+
+	if ( _transform ) {
+		auto firstPos = Scene::CenterF();
+		firstPos.y += 100;
+		_transform->setPosition( firstPos );
+	}
 }
 
 Player::~Player() {
@@ -21,15 +27,17 @@ Player::~Player() {
 void Player::update() {
 	int x = 0, y = 0;
 	if ( KeyRight.pressed() ) {
-		x = 1;
-	} else if( KeyLeft.pressed() ){
-		x = -1;
+		x += 1;
+	}
+	if( KeyLeft.pressed() ){
+		x -= 1;
 	}
 
 	if ( KeyDown.pressed() ) {
-		y = 1;
-	} else if( KeyUp.pressed() ){
-		y = -1;
+		y += 1;
+	}
+	if( KeyUp.pressed() ){
+		y -= 1;
 	}
 
 	if ( _transform ) {
@@ -43,6 +51,6 @@ void Player::update() {
 void Player::draw() {
 	if ( _mainTexture && _transform ) {
 		auto pos = _transform->getPosition();
-		_mainTexture->draw( pos );
+		_mainTexture->resized(90).drawAt( pos );
 	}
 }

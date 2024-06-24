@@ -17,6 +17,10 @@ std::unique_ptr<GameObject> GameMainFactroy::create(Game::Main::ObjectType objTy
 		gameObject->addComponent<Player>();
 	} break;
 
+	case ObjectType::kBoss: {
+		gameObject->addComponent<Transform2D>();
+	} break;
+
 	default: {
 		return nullptr;
 	} break;
