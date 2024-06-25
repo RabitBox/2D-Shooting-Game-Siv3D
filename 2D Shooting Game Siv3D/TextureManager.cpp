@@ -40,7 +40,7 @@ void TextureManager::UnloadTexture(const FilePath& filePath) {
 	}
 }
 
-TextureManager& TextureManager::GetInstance() {
+TextureManager& TextureManager::GetInstance() noexcept {
 	static TextureManager instance;
 	return instance;
 }

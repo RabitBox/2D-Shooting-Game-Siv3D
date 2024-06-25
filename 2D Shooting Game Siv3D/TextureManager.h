@@ -31,6 +31,6 @@ public:
 	void UnloadTexture(const FilePath& filePath);
 
 public:
-	static TextureManager& GetInstance();
+	static TextureManager& GetInstance() noexcept;
 };
 

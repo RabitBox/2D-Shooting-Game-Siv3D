@@ -8,13 +8,13 @@ Boss::Boss(GameObject* owner)
 	// 初期化子リストで初期化
 
 	TextureManager& manager = TextureManager::GetInstance();
-	manager.LoadEmoji(U"🦖");
-	manager.TryGetTexture(U"🦖", _mainTexture);
+	manager.LoadEmoji(U"😈");
+	manager.TryGetTexture(U"😈", _mainTexture);
 	_transform = owner->getComponent<Transform2D>();
 
 	if (_transform) {
 		auto firstPos = Scene::CenterF();
-		firstPos.y -= 100;
+		firstPos.y -= 150;
 		_transform->setPosition( firstPos );
 	}
 }
