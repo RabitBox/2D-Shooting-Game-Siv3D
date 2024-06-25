@@ -28,12 +28,12 @@ public:
 	void onDraw();
 
 public:
-	bool getActive() { return _isActive; }
-	void setActive(bool active) { _isActive = active; };
+	bool getActive() const noexcept { return _isActive; }
+	void setActive(bool active) noexcept { _isActive = active; };
 
 public:
 	/// @brief コンポーネント追加
-	/// @tparam T 追加したいコンポーネント
+	/// @tparam T 追加したいコンポーネント型
 	/// @return 追加したコンポーネント
 	template<class T>
 	T* addComponent() {
@@ -43,7 +43,7 @@ public:
 	}
 
 	/// @brief コンポーネント取得
-	/// @tparam T 取得したいコンポーネント
+	/// @tparam T 取得したいコンポーネント型
 	/// @return 取得したコンポーネント
 	template<class T>
 	T* getComponent() {
@@ -54,6 +54,17 @@ public:
 			}
 		}
 		return nullptr;
+	}
+
+	/// @brief コンポーネント取得　なければ追加する
+	/// @tparam T 取得したいコンポーネント型
+	/// @return 取得したコンポーネント
+	template<class T>
+	T* requireComponent() {
+		T* tmp = getComponent<T>();
+		return (tmp != nullptr)
+			? tmp
+			: addComponent<T>();
 	}
 };
 

@@ -207,6 +207,9 @@
     <ClCompile Include="BulletGenerator.cpp">
       <Filter>Game\System\BulletGenerator</Filter>
     </ClCompile>
+    <ClCompile Include="SimpleBullet.cpp">
+      <Filter>Game\Object\Bullet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -913,6 +916,9 @@
     </ClInclude>
     <ClInclude Include="BulletGenerator.h">
       <Filter>Game\System\BulletGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleBullet.h">
+      <Filter>Game\Object\Bullet</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
