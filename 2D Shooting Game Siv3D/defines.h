@@ -6,5 +6,15 @@ namespace Game{
 			kPlayer,
 			kBoss,
 		};
+
+		enum class BulletType {
+			Linear,
+		};
+
+		enum class TypeID {
+			None,
+			Player,
+			Enemy,
+		};
 	};
 };

@@ -9,6 +9,11 @@ BulletGenerator::~BulletGenerator() {
 
 }
 
-void BulletGenerator::fire( Vec2 position, double angle ) {
+void BulletGenerator::fireBullet( GameObject* owner, BulletType type, Vec2 position, Vec2 velocity ) {
 
+}
+
+BulletGenerator& BulletGenerator::GetInstance() noexcept {
+	static BulletGenerator instance;
+	return instance;
 }

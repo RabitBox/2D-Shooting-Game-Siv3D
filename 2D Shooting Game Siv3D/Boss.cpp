@@ -1,6 +1,5 @@
 ﻿#include "stdafx.h"
 #include "Boss.h"
-#include "Transform2D.h"
 #include "TextureManager.h"
 
 Boss::Boss(GameObject* owner)
