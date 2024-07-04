@@ -7,18 +7,20 @@ namespace {
 }
 
 BulletGenerator::BulletGenerator() {
-	_bulletList.reserve( MAX );	// 弾の最大数を予め定義
+	// 弾の最大数を予め定義
+	_bulletList.reserve( MAX );
 }
 
 BulletGenerator::~BulletGenerator() {
-
+	// 要素を全て削除
+	_bulletList.clear();
 }
 
-void BulletGenerator::fireBullet( GameObject* owner, BulletType type, Vec2 position, Vec2 velocity ) {
+GameObject* BulletGenerator::fireBullet( GameObject* owner, BulletType type, Vec2 position, Vec2 direction ) {
 	// 容量を超えるかどうかをチェック
 	if (_bulletList.size() >= _bulletList.capacity()) {
 		// 容量を超える場合は追加しない
-		return;
+		return nullptr;
 	}
 
 	// 基本オブジェクト
@@ -49,6 +51,19 @@ void BulletGenerator::fireBullet( GameObject* owner, BulletType type, Vec2 posit
 
 	// moveでデータを移動し、弾初期化を完了
 	_bulletList.push_back( std::move(bulletObj) );
+	// 作成したデータを呼び出し元に渡す
+	return &_bulletList.back();
+}
+
+void BulletGenerator::eraseInactives() {
+	for (auto itr = _bulletList.begin(); itr != _bulletList.end(); ) {
+		if ( itr->getActive() == false ) {
+			itr = _bulletList.erase( itr );
+		}
+		else {
+			++itr;
+		}
+	}
 }
 
 BulletGenerator& BulletGenerator::GetInstance() noexcept {
