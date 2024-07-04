@@ -20,6 +20,22 @@ public:
 	GameObject() = default;
 	virtual ~GameObject() = default;
 
+	// コピーコンストラクタとコピー代入演算子を削除
+	GameObject(const GameObject&) = delete;
+	GameObject& operator=(const GameObject&) = delete;
+
+	// ムーブコンストラクタ
+	GameObject(GameObject&& other) noexcept;
+
+	// ムーブ代入演算子
+	GameObject& operator=(GameObject&& other) noexcept {
+		if (this != &other) {
+			_isActive = other._isActive;
+			_componentList = std::move(other._componentList);
+		}
+		return *this;
+	}
+
 public:
 	/// @brief 更新
 	void onUpdate();
