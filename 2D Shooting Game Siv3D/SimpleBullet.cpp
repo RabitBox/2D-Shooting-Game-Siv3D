@@ -11,8 +11,12 @@ SimpleBullet::~SimpleBullet() {
 }
 
 void SimpleBullet::update() {
+	if ( !_owner->getActive() ) {
+		return;
+	}
+
 	// 画面外判定
-	if ( !_transform || _transform->isOutOfScreen() ) {
+	if ( _transform->isOutOfScreen() ) {
 		_owner->setActive( false );
 		return;
 	}

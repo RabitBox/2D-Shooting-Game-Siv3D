@@ -16,6 +16,13 @@ public:
 	virtual ~Bullet() = default;
 
 public:
+	/// @brief 更新
+	void update() override {}
+
+	/// @brief 描画
+	void draw() override {}
+
+public:
 	TypeID getTypeID() const noexcept { return _type; }
 	void setTypeID(TypeID type) noexcept { _type = type; }
 

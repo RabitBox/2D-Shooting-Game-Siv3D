@@ -24,6 +24,13 @@ public:
 	virtual ~Transform2D() = default;
 
 public:
+	/// @brief 更新
+	void update() override {}
+
+	/// @brief 描画
+	void draw() override {}
+
+public:
 	Vec2	getPosition() const noexcept { return _position; }
 	void	setPosition(const Vec2& position) noexcept { _position = position; }
 	void	addPosition(const Vec2& position) noexcept { _position += position; }

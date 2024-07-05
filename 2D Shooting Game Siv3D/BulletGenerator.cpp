@@ -29,7 +29,9 @@ GameObject* BulletGenerator::fireBullet(
 	}
 
 	// 基本オブジェクト
-	GameObject bulletObj;
+	_bulletList.emplace_back();
+	auto& bulletObj = _bulletList.back();
+	//GameObject bulletObj;
 
 #pragma region 基本コンポーネントのセットアップ
 	// トランスフォーム
@@ -56,9 +58,10 @@ GameObject* BulletGenerator::fireBullet(
 	}
 
 	// moveでデータを移動し、弾初期化を完了
-	_bulletList.push_back( std::move(bulletObj) );
+	//_bulletList.push_back( std::move(bulletObj) );
+	// return &_bulletList.back();
 	// 作成したデータを呼び出し元に渡す
-	return &_bulletList.back();
+	return &bulletObj;
 }
 
 void BulletGenerator::eraseInactives() {
