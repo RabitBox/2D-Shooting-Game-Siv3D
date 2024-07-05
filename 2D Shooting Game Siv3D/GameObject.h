@@ -11,13 +11,13 @@ class GameObject final
 {
 protected:
 	/// @brief 状態
-	bool _isActive = true;
+	bool _isActive;
 
 	/// @brief 所有コンポーネント
 	std::vector<std::unique_ptr<IComponent>> _componentList;
 
 public:
-	GameObject() = default;
+	GameObject();
 	virtual ~GameObject() = default;
 
 	// コピーコンストラクタとコピー代入演算子を削除

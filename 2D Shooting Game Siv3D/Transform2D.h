@@ -12,6 +12,9 @@ private:
 	/// @brief 座標
 	Vec2 _position;
 
+	/// @brief ベクトル
+	Vec2 _direction;
+
 	/// @brief 角度
 	double _angle;
 
@@ -24,6 +27,9 @@ public:
 	Vec2	getPosition() const noexcept { return _position; }
 	void	setPosition(const Vec2& position) noexcept { _position = position; }
 	void	addPosition(const Vec2& position) noexcept { _position += position; }
+
+	Vec2	getDirection() const noexcept { return _direction; }
+	void	setDirection(const Vec2& direction) noexcept { _direction = direction; }
 
 	double	getAngle() const noexcept { return _angle; }
 	void	setAngle(const double angle) noexcept { _angle = angle; }

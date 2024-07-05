@@ -26,6 +26,10 @@ public:
 	void eraseInactives();
 
 public:
+	void update();
+	void draw();
+
+public:
 	static BulletGenerator& GetInstance() noexcept;
 };
 

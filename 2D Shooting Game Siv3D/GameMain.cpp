@@ -5,6 +5,7 @@
 #include "GameMainFactroy.h"
 #include "Transform2D.h"
 #include "Player.h"
+#include "BulletGenerator.h"
 
 GameMain::GameMain() {
 	_factory = std::make_unique<GameMainFactroy>();
@@ -20,9 +21,12 @@ GameMain::~GameMain() {
 void GameMain::Update() {
 	if ( _player ) _player->onUpdate();
 	if ( _boss ) _boss->onUpdate();
+	BulletGenerator::GetInstance().update();
+	BulletGenerator::GetInstance().eraseInactives();
 }
 
 void GameMain::Draw() {
 	if ( _player ) _player->onDraw();
 	if ( _boss ) _boss->onDraw();
+	BulletGenerator::GetInstance().draw();
 }

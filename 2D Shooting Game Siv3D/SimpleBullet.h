@@ -6,13 +6,14 @@ class Transform2D;
 class SimpleBullet : public IComponent
 {
 private:
-	//Texture* _mainTexture = nullptr;
 	Transform2D* _transform = nullptr;
-	float _speed = 0.0f;
+	float _speed;
+
+	const Texture emoji{ U"🍥"_emoji };
 
 public:
 	SimpleBullet() = delete;
-	SimpleBullet(GameObject* owner, float speed);
+	SimpleBullet(GameObject* owner);
 	virtual ~SimpleBullet();
 
 public:

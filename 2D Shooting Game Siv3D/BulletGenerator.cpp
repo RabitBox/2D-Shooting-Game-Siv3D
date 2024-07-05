@@ -1,9 +1,10 @@
 ﻿#include "stdafx.h"
 #include "BulletGenerator.h"
 #include "Bullet.h"
+#include "SimpleBullet.h"
 
 namespace {
-	constexpr int MAX = 256;
+	constexpr int MAX = 1;
 }
 
 BulletGenerator::BulletGenerator() {
@@ -16,7 +17,11 @@ BulletGenerator::~BulletGenerator() {
 	_bulletList.clear();
 }
 
-GameObject* BulletGenerator::fireBullet( GameObject* owner, BulletType type, Vec2 position, Vec2 direction ) {
+GameObject* BulletGenerator::fireBullet(
+	GameObject* owner,
+	BulletType type,
+	Vec2 position,
+	Vec2 direction ) {
 	// 容量を超えるかどうかをチェック
 	if (_bulletList.size() >= _bulletList.capacity()) {
 		// 容量を超える場合は追加しない
@@ -31,6 +36,7 @@ GameObject* BulletGenerator::fireBullet( GameObject* owner, BulletType type, Vec
 	auto transform = bulletObj.addComponent<Transform2D>();
 	if (transform) {
 		transform->setPosition( position );
+		transform->setDirection( direction );
 	}
 	// 弾
 	auto bullet = bulletObj.addComponent<Bullet>();
@@ -43,7 +49,7 @@ GameObject* BulletGenerator::fireBullet( GameObject* owner, BulletType type, Vec
 	switch ( type )
 	{
 	case BulletType::Linear: {
-
+		bulletObj.addComponent<SimpleBullet>();
 	} break;
 	default:
 		break;
@@ -63,6 +69,18 @@ void BulletGenerator::eraseInactives() {
 		else {
 			++itr;
 		}
+	}
+}
+
+void BulletGenerator::update() {
+	for ( auto& obj : _bulletList ) {
+		obj.onUpdate();
+	}
+}
+
+void BulletGenerator::draw() {
+	for ( auto& obj : _bulletList ) {
+		obj.onDraw();
 	}
 }
 
