@@ -7,3 +7,15 @@ Transform2D::Transform2D(GameObject* owner) :
 	_angle(0) {
 	// 初期化子リストで初期化
 }
+
+bool Transform2D::isOutOfScreen() {
+	// 横座標が画面外か
+	if ( _position.x < 0 || _position.x > Scene::Width() ) {
+		return true;
+	}
+	// 縦座標が画面外か
+	if ( _position.y < 0 || _position.y > Scene::Height() ) {
+		return true;
+	}
+	return false;
+}

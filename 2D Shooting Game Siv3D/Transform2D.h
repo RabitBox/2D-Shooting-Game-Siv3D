@@ -28,5 +28,10 @@ public:
 	double	getAngle() const noexcept { return _angle; }
 	void	setAngle(const double angle) noexcept { _angle = angle; }
 	void	addAngle(const double angle) noexcept { _angle += angle; }
+
+public:
+	/// @brief 座標が画面外か
+	/// @return 画面外ならtrue
+	bool isOutOfScreen();
 };
 
