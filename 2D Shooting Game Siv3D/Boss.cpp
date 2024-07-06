@@ -7,6 +7,7 @@ namespace {
 	int count = 0;
 
 	constexpr int INTERVAL_LINEAR = 20;
+	constexpr int INTERVAL_LINEAR_R = 30;
 	constexpr int INTERVAL_INVOLUTE = 20;
 
 	const Vec2 LINEAR_BULLET_DIRS[] = {
@@ -57,6 +58,11 @@ void Boss::update() {
 				LINEAR_BULLET_DIRS[i]
 			);
 		}
+	}
+
+	// 回転発射弾
+	if ( count % INTERVAL_LINEAR_R == 0 ) {
+		
 	}
 
 	// インボリュート
