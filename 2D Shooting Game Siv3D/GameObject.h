@@ -28,20 +28,14 @@ public:
 	GameObject(GameObject&& other) noexcept;
 
 	// ムーブ代入演算子
-	GameObject& operator=(GameObject&& other) noexcept {
-		if (this != &other) {
-			_isActive = other._isActive;
-			_componentList = std::move(other._componentList);
-		}
-		return *this;
-	}
+	GameObject& operator=(GameObject&& other) noexcept;
 
 public:
 	/// @brief 更新
-	void onUpdate();
+	void onUpdate() const;
 
 	/// @brief 描画
-	void onDraw();
+	void onDraw() const;
 
 public:
 	bool getActive() const noexcept { return _isActive; }
@@ -82,5 +76,8 @@ public:
 			? tmp
 			: addComponent<T>();
 	}
+
+	/// @brief コンポーネントの全放棄
+	void clearComponent() { _componentList.clear(); }
 };
 

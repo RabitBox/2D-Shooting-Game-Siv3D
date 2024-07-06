@@ -3,6 +3,18 @@
 #include "TextureManager.h"
 #include "BulletGenerator.h"
 
+namespace {
+	int count = 0;
+
+	constexpr int INTERVAL_LINEAR = 20;
+
+	const Vec2 LINEAR_BULLET_DIRS[] = {
+		Vec2::Down(),
+		Vec2( 0.5, 1).normalized(),
+		Vec2(-0.5, 1).normalized(),
+	};
+};
+
 Boss::Boss(GameObject* owner)
 	: IComponent(owner) {
 	// 初期化子リストで初期化
@@ -24,13 +36,29 @@ Boss::~Boss() {
 }
 
 void Boss::update() {
+	++count;
+
+	if ( count % INTERVAL_LINEAR ) {
+		return;
+	}
+
 	auto pos = _transform->getPosition();
-	BulletGenerator::GetInstance().fireBullet(
+
+	for ( int i = 0; i < 3; ++i ) {
+		auto firePos = pos + LINEAR_BULLET_DIRS[i] * 50.0f;
+		BulletGenerator::GetInstance().fireBullet(
+			_owner,
+			Game::Main::BulletType::Linear,
+			firePos,
+			LINEAR_BULLET_DIRS[i]
+		);
+	}
+	/*BulletGenerator::GetInstance().fireBullet(
 		_owner,
 		Game::Main::BulletType::Linear,
 		pos,
 		Vec2::Down()
-	);
+	);*/
 }
 
 void Boss::draw() {

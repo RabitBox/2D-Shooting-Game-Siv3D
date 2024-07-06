@@ -1,9 +1,14 @@
 ﻿#include "stdafx.h"
 #include "SimpleBullet.h"
+#include "TextureManager.h"
 
 SimpleBullet::SimpleBullet(GameObject* owner)
-	: _speed( 1.0f ), IComponent(owner) {
+	: _speed( 3.0f ), IComponent(owner) {
 	_transform = owner->getComponent<Transform2D>();
+
+	TextureManager& manager = TextureManager::GetInstance();
+	manager.LoadEmoji(U"🍥");
+	manager.TryGetTexture(U"🍥", _mainTexture);
 }
 
 SimpleBullet::~SimpleBullet() {
@@ -35,5 +40,5 @@ void SimpleBullet::draw() {
 		return;
 	}
 
-	emoji.resized(50).drawAt( _transform->getPosition() );
+	_mainTexture->resized(50).drawAt( _transform->getPosition() );
 }

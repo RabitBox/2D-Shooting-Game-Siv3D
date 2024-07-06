@@ -19,10 +19,11 @@ GameMain::~GameMain() {
 }
 
 void GameMain::Update() {
+	BulletGenerator::GetInstance().eraseInactives();
+
 	if ( _player ) _player->onUpdate();
 	if ( _boss ) _boss->onUpdate();
 	BulletGenerator::GetInstance().update();
-	BulletGenerator::GetInstance().eraseInactives();
 }
 
 void GameMain::Draw() {

@@ -4,7 +4,7 @@
 #include "SimpleBullet.h"
 
 namespace {
-	constexpr int MAX = 1;
+	constexpr int MAX = 100;
 }
 
 BulletGenerator::BulletGenerator() {
@@ -29,6 +29,7 @@ GameObject* BulletGenerator::fireBullet(
 	}
 
 	// 基本オブジェクト
+	
 	_bulletList.emplace_back();
 	auto& bulletObj = _bulletList.back();
 

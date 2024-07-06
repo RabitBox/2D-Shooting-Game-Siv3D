@@ -24,5 +24,10 @@ public:
 
 	/// @brief 描画
 	virtual void draw() {}
+
+public:
+	/// @brief 所有者のメモリを再セットする
+	/// @param owner 新しい所有者へのポインタ
+	void setOwner(GameObject* const owner) noexcept { _owner = owner; }
 };
 

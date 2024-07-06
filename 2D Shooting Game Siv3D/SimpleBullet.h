@@ -9,7 +9,8 @@ private:
 	Transform2D* _transform = nullptr;
 	float _speed;
 
-	const Texture emoji{ U"🍥"_emoji };
+	//const Texture emoji{ U"🍥"_emoji };
+	Texture* _mainTexture = nullptr;
 
 public:
 	SimpleBullet() = delete;
