@@ -6,6 +6,10 @@ void Main()
 {
 	GameMain gameMain;
 
+	int FPS = 60; // 1秒間に1画面を書き換える回数
+	Stopwatch sw;   //FPS60
+	sw.start(); //FPS60
+
 	//// 背景の色を設定する | Set the background color
 	//Scene::SetBackground(ColorF{ 0.6, 0.8, 0.7 });
 
@@ -98,6 +102,8 @@ void Main()
 
 		//// プレイヤーを描く | Draw the player
 		//emoji.scaled(0.75).mirrored(isPlayerFacingRight).drawAt(playerPosX, 540);
+		while (sw.msF() < 1000.0 / FPS);    //1/60秒経過するまでループ
+		sw.restart();   //FPS60  ストップウォッチをリスタート
 	}
 }
 

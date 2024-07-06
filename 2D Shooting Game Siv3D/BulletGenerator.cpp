@@ -1,7 +1,6 @@
 ﻿#include "stdafx.h"
 #include "BulletGenerator.h"
 #include "Bullet.h"
-#include "SimpleBullet.h"
 
 namespace {
 	constexpr int MAX = 100;
@@ -53,6 +52,11 @@ GameObject* BulletGenerator::fireBullet(
 	case BulletType::Linear: {
 		bulletObj.addComponent<SimpleBullet>();
 	} break;
+
+	case BulletType::Involute: {
+		bulletObj.addComponent<InvoluteBullet>();
+	} break;
+
 	default:
 		break;
 	}

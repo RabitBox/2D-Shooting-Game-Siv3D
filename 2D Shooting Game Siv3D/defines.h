@@ -8,7 +8,8 @@ namespace Game{
 		};
 
 		enum class BulletType {
-			Linear,
+			Linear,		// 等速直線弾
+			Involute,	// インボリュート弾
 		};
 
 		enum class TypeID {
