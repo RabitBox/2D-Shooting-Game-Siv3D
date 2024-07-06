@@ -11,6 +11,7 @@ class Boss : public IComponent
 private:
 	Texture* _mainTexture = nullptr;
 	Transform2D* _transform = nullptr;
+	int _count;
 
 public:
 	Boss() = delete;

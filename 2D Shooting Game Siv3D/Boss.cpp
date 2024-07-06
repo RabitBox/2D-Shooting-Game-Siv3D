@@ -4,10 +4,8 @@
 #include "BulletGenerator.h"
 
 namespace {
-	int count = 0;
-
-	constexpr int INTERVAL_LINEAR = 20;
-	constexpr int INTERVAL_LINEAR_R = 30;
+	constexpr int INTERVAL_LINEAR = 25;
+	constexpr int INTERVAL_LINEAR_R = 20;
 	constexpr int INTERVAL_INVOLUTE = 20;
 
 	const Vec2 LINEAR_BULLET_DIRS[] = {
@@ -36,6 +34,8 @@ Boss::Boss(GameObject* owner)
 		firstPos.y -= 150;
 		_transform->setPosition( firstPos );
 	}
+
+	_count = 0;
 }
 
 Boss::~Boss() {
@@ -43,12 +43,12 @@ Boss::~Boss() {
 }
 
 void Boss::update() {
-	++count;
+	++_count;
 
 	auto pos = _transform->getPosition();
 
 	// 3way
-	if ( count % INTERVAL_LINEAR == 0 ) {
+	if ( _count % INTERVAL_LINEAR == 0 ) {
 		for (int i = 0; i < 3; ++i) {
 			auto firePos = pos + LINEAR_BULLET_DIRS[i] * 50.0f;
 			BulletGenerator::GetInstance().fireBullet(
@@ -61,27 +61,43 @@ void Boss::update() {
 	}
 
 	// 回転発射弾
-	if ( count % INTERVAL_LINEAR_R == 0 ) {
-		
+	if ( _count % INTERVAL_LINEAR_R == 0 ) {
+		auto baseAngle = 1.4f * _count;
+		float ANGLES[] = {
+			baseAngle, baseAngle + 180.f,
+			-baseAngle, -(baseAngle + 180.f),
+		};
+
+		for ( int i = 0; i < 4; ++i ) {
+			auto rad = Math::ToRadians(ANGLES[i]);
+			Vec2 dir = Vec2{ Math::Sin(rad), Math::Cos(rad)};
+			auto firePos = pos + dir * 50.0f;
+			BulletGenerator::GetInstance().fireBullet(
+				_owner,
+				Game::Main::BulletType::Linear,
+				firePos,
+				dir
+			);
+		}
 	}
 
 	// インボリュート
-	if ( count % INTERVAL_INVOLUTE == 0 ) {
-		for (int i = 0; i < 2; ++i) {
-			auto bullet = BulletGenerator::GetInstance().fireBullet(
-				_owner,
-				Game::Main::BulletType::Involute,
-				pos,
-				Vec2::Up()
-			);
-			if( !bullet ) continue;
+	//if ( _count % INTERVAL_INVOLUTE == 0 ) {
+	//	for (int i = 0; i < 2; ++i) {
+	//		auto bullet = BulletGenerator::GetInstance().fireBullet(
+	//			_owner,
+	//			Game::Main::BulletType::Involute,
+	//			pos,
+	//			Vec2::Up()
+	//		);
+	//		if( !bullet ) continue;
 
-			auto inv = bullet->getComponent<InvoluteBullet>();
-			if ( !inv ) continue;
+	//		auto inv = bullet->getComponent<InvoluteBullet>();
+	//		if ( !inv ) continue;
 
-			inv->setScale(ROT_SCALE[i]);
-		}
-	}
+	//		inv->setScale(ROT_SCALE[i]);
+	//	}
+	//}
 }
 
 void Boss::draw() {
