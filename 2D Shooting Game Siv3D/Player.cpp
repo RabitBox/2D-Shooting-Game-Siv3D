@@ -40,7 +40,7 @@ void Player::update() {
 
 	if ( _transform ) {
 		if ( x || y ) {
-			auto vec = Vec2{ x, y }.normalized();
+			auto vec = Vec2{ x, y }.normalized() * 3.f;
 			_transform->addPosition( vec );
 		}
 	}
