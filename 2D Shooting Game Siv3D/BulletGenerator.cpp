@@ -57,6 +57,10 @@ GameObject* BulletGenerator::fireBullet(
 		bulletObj.addComponent<InvoluteBullet>();
 	} break;
 
+	case BulletType::Spiral: {
+		bulletObj.addComponent<SpiralBullet>();
+	} break;
+
 	default:
 		break;
 	}

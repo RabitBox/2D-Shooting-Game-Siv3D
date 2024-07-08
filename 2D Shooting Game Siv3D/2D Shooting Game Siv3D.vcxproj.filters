@@ -216,6 +216,9 @@
     <ClCompile Include="InvoluteBullet.cpp">
       <Filter>Game\Object\Bullet</Filter>
     </ClCompile>
+    <ClCompile Include="SpiralBullet.cpp">
+      <Filter>Game\Object\Bullet</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -930,6 +933,9 @@
       <Filter>Game\Object\Bullet</Filter>
     </ClInclude>
     <ClInclude Include="InvoluteBullet.h">
+      <Filter>Game\Object\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="SpiralBullet.h">
       <Filter>Game\Object\Bullet</Filter>
     </ClInclude>
   </ItemGroup>

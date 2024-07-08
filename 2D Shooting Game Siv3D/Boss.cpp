@@ -49,60 +49,107 @@ void Boss::update() {
 
 	// 3way
 	if ( _count % INTERVAL_LINEAR == 0 ) {
-		for (int i = 0; i < 3; ++i) {
-			auto firePos = pos + LINEAR_BULLET_DIRS[i] * 50.0f;
-			BulletGenerator::GetInstance().fireBullet(
-				_owner,
-				Game::Main::BulletType::Linear,
-				firePos,
-				LINEAR_BULLET_DIRS[i]
-			);
-		}
+		//attack3WayBullet( pos );
 	}
 
 	// 回転発射弾
 	if ( _count % INTERVAL_LINEAR_R == 0 ) {
-		auto baseAngle = 1.4f * _count;
-		float ANGLES[] = {
-			baseAngle, baseAngle + 180.f,
-			-baseAngle, -(baseAngle + 180.f),
-		};
-
-		for ( int i = 0; i < 4; ++i ) {
-			auto rad = Math::ToRadians(ANGLES[i]);
-			Vec2 dir = Vec2{ Math::Sin(rad), Math::Cos(rad)};
-			auto firePos = pos + dir * 50.0f;
-			BulletGenerator::GetInstance().fireBullet(
-				_owner,
-				Game::Main::BulletType::Linear,
-				firePos,
-				dir
-			);
-		}
+		//attackCircle4Bullet( pos );
 	}
 
 	// インボリュート
-	//if ( _count % INTERVAL_INVOLUTE == 0 ) {
-	//	for (int i = 0; i < 2; ++i) {
-	//		auto bullet = BulletGenerator::GetInstance().fireBullet(
-	//			_owner,
-	//			Game::Main::BulletType::Involute,
-	//			pos,
-	//			Vec2::Up()
-	//		);
-	//		if( !bullet ) continue;
+	if ( _count % INTERVAL_INVOLUTE == 0 ) {
+		//attackInvoluteBullet( pos );
+	}
 
-	//		auto inv = bullet->getComponent<InvoluteBullet>();
-	//		if ( !inv ) continue;
-
-	//		inv->setScale(ROT_SCALE[i]);
-	//	}
-	//}
+	// 渦巻き弾
+	if ( _count % 120 == 0 ) {
+		attackSpiralBullet( pos );
+	}
 }
 
 void Boss::draw() {
 	if (_mainTexture && _transform) {
 		auto pos = _transform->getPosition();
 		_mainTexture->drawAt(pos);
+	}
+}
+
+void Boss::attack3WayBullet( Vec2 position ) {
+	for (int i = 0; i < 3; ++i) {
+		auto firePos = position + LINEAR_BULLET_DIRS[i] * 50.0f;
+		BulletGenerator::GetInstance().fireBullet(
+			_owner,
+			Game::Main::BulletType::Linear,
+			firePos,
+			LINEAR_BULLET_DIRS[i]
+		);
+	}
+}
+
+void Boss::attackCircle4Bullet( Vec2 position ){
+	auto baseAngle = 1.4f * _count;
+	float ANGLES[] = {
+		baseAngle, baseAngle + 180.f,
+		-baseAngle, -(baseAngle + 180.f),
+	};
+
+	for ( int i = 0; i < 4; ++i ) {
+		auto rad = Math::ToRadians(ANGLES[i]);
+		Vec2 dir = Vec2{ Math::Sin(rad), Math::Cos(rad)};
+		auto firePos = position + dir * 50.0f;
+		BulletGenerator::GetInstance().fireBullet(
+			_owner,
+			Game::Main::BulletType::Linear,
+			firePos,
+			dir
+		);
+	}
+}
+
+void Boss::attackInvoluteBullet(Vec2 position) {
+	for (int i = 0; i < 2; ++i) {
+		auto bullet = BulletGenerator::GetInstance().fireBullet(
+			_owner,
+			Game::Main::BulletType::Involute,
+			position,
+			Vec2::Up()
+		);
+		if( !bullet ) continue;
+
+		auto inv = bullet->getComponent<InvoluteBullet>();
+		if ( !inv ) continue;
+
+		inv->setScale(ROT_SCALE[i]);
+	}
+}
+
+void Boss::attackSpiralBullet( Vec2 position ){
+	const int COUNT = 8;
+	const float ANGLE = 360.f / COUNT;
+	for (int i = 0; i < COUNT; ++i ) {
+		auto bullet = BulletGenerator::GetInstance().fireBullet(
+			_owner,
+			Game::Main::BulletType::Spiral,
+			position,
+			Vec2::Up()
+		);
+		if ( bullet ) {
+			bullet->getComponent<SpiralBullet>()->setStartAngle( i * ANGLE );
+		}
+	}
+
+	for (int i = 0; i < COUNT; ++i) {
+		auto bullet = BulletGenerator::GetInstance().fireBullet(
+			_owner,
+			Game::Main::BulletType::Spiral,
+			position,
+			Vec2::Up()
+		);
+		if (bullet) {
+			auto spiral = bullet->getComponent<SpiralBullet>();
+			spiral->setStartAngle(i * ANGLE);
+			spiral->setSpeedScale( -1.0f );
+		}
 	}
 }
