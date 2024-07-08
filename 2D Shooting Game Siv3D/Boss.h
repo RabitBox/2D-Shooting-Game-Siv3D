@@ -12,6 +12,7 @@ private:
 	Texture* _mainTexture = nullptr;
 	Transform2D* _transform = nullptr;
 	int _count;
+	int _phase;
 
 public:
 	Boss() = delete;

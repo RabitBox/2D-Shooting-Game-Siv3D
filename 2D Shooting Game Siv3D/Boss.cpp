@@ -7,6 +7,7 @@ namespace {
 	constexpr int INTERVAL_LINEAR = 25;
 	constexpr int INTERVAL_LINEAR_R = 20;
 	constexpr int INTERVAL_INVOLUTE = 20;
+	constexpr int INTERVAL_SPIRAL = 80;
 
 	const Vec2 LINEAR_BULLET_DIRS[] = {
 		Vec2::Down(),
@@ -17,6 +18,13 @@ namespace {
 	const float ROT_SCALE[] = {
 		1.0f,
 		-1.0f
+	};
+
+	enum Phase {
+		PHASE_1,
+		PHASE_2,
+		PHASE_3,
+		PHASE_4,
 	};
 };
 
@@ -36,6 +44,7 @@ Boss::Boss(GameObject* owner)
 	}
 
 	_count = 0;
+	_phase = 0;
 }
 
 Boss::~Boss() {
@@ -43,28 +52,62 @@ Boss::~Boss() {
 }
 
 void Boss::update() {
+	static int fireCount = 0;
+	auto pos = _transform->getPosition();
 	++_count;
 
-	auto pos = _transform->getPosition();
+	switch (_phase)
+	{
+	case Phase::PHASE_1: {
+		// 3way
+		if (_count % INTERVAL_LINEAR == 0) {
+			++fireCount;
+			attack3WayBullet( pos );
+			if ( fireCount > 8 ) {
+				_phase++;
+				fireCount = 0;
+			}
+		}
+	} break;
 
-	// 3way
-	if ( _count % INTERVAL_LINEAR == 0 ) {
-		//attack3WayBullet( pos );
-	}
+	case Phase::PHASE_2: {
+		// 回転発射弾
+		if (_count % INTERVAL_LINEAR_R == 0) {
+			++fireCount;
+			attackCircle4Bullet(pos);
+			if (fireCount > 8) {
+				_phase++;
+				fireCount = 0;
+			}
+		}
+	} break;
 
-	// 回転発射弾
-	if ( _count % INTERVAL_LINEAR_R == 0 ) {
-		attackCircle4Bullet( pos );
-	}
+	case Phase::PHASE_3: {
+		// インボリュート
+		if (_count % INTERVAL_INVOLUTE == 0) {
+			++fireCount;
+			attackInvoluteBullet( pos );
+			if (fireCount > 8) {
+				_phase++;
+				fireCount = 0;
+			}
+		}
+	} break;
 
-	// インボリュート
-	if ( _count % INTERVAL_INVOLUTE == 0 ) {
-		//attackInvoluteBullet( pos );
-	}
-
-	// 渦巻き弾
-	if ( _count % 80 == 0 ) {
-		attackSpiralBullet( pos );
+	case Phase::PHASE_4: {
+		// 渦巻き弾
+		if (_count % INTERVAL_SPIRAL == 0) {
+			++fireCount;
+			attackSpiralBullet(pos);
+			if (fireCount > 8) {
+				_phase++;
+				fireCount = 0;
+			}
+		}
+	} break;
+	default:
+		_phase = 0;
+		break;
 	}
 }
 
