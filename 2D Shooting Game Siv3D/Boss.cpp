@@ -54,7 +54,7 @@ void Boss::update() {
 
 	// 回転発射弾
 	if ( _count % INTERVAL_LINEAR_R == 0 ) {
-		//attackCircle4Bullet( pos );
+		attackCircle4Bullet( pos );
 	}
 
 	// インボリュート
@@ -63,7 +63,7 @@ void Boss::update() {
 	}
 
 	// 渦巻き弾
-	if ( _count % 120 == 0 ) {
+	if ( _count % 80 == 0 ) {
 		attackSpiralBullet( pos );
 	}
 }

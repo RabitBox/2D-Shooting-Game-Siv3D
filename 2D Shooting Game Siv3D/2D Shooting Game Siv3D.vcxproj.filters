@@ -169,6 +169,15 @@
     <Filter Include="Game\System\BulletGenerator">
       <UniqueIdentifier>{e59a8dfc-b67c-4923-871f-8004863b6f9c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Object\Bullet\Linear">
+      <UniqueIdentifier>{60d5385c-d6fa-4008-879a-9eff98122263}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Bullet\Spiral">
+      <UniqueIdentifier>{8ce95460-85cf-4250-999c-f415ab2107ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Bullet\Involute">
+      <UniqueIdentifier>{eaa01478-459d-4a98-8e12-98b6e7e5918d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -207,17 +216,17 @@
     <ClCompile Include="BulletGenerator.cpp">
       <Filter>Game\System\BulletGenerator</Filter>
     </ClCompile>
-    <ClCompile Include="SimpleBullet.cpp">
-      <Filter>Game\Object\Bullet</Filter>
-    </ClCompile>
     <ClCompile Include="Bullet.cpp">
       <Filter>Game\Object\Bullet</Filter>
     </ClCompile>
-    <ClCompile Include="InvoluteBullet.cpp">
-      <Filter>Game\Object\Bullet</Filter>
+    <ClCompile Include="SimpleBullet.cpp">
+      <Filter>Game\Object\Bullet\Linear</Filter>
     </ClCompile>
     <ClCompile Include="SpiralBullet.cpp">
-      <Filter>Game\Object\Bullet</Filter>
+      <Filter>Game\Object\Bullet\Spiral</Filter>
+    </ClCompile>
+    <ClCompile Include="InvoluteBullet.cpp">
+      <Filter>Game\Object\Bullet\Involute</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -926,17 +935,17 @@
     <ClInclude Include="BulletGenerator.h">
       <Filter>Game\System\BulletGenerator</Filter>
     </ClInclude>
-    <ClInclude Include="SimpleBullet.h">
-      <Filter>Game\Object\Bullet</Filter>
-    </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>Game\Object\Bullet</Filter>
     </ClInclude>
-    <ClInclude Include="InvoluteBullet.h">
-      <Filter>Game\Object\Bullet</Filter>
+    <ClInclude Include="SimpleBullet.h">
+      <Filter>Game\Object\Bullet\Linear</Filter>
     </ClInclude>
     <ClInclude Include="SpiralBullet.h">
-      <Filter>Game\Object\Bullet</Filter>
+      <Filter>Game\Object\Bullet\Spiral</Filter>
+    </ClInclude>
+    <ClInclude Include="InvoluteBullet.h">
+      <Filter>Game\Object\Bullet\Involute</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

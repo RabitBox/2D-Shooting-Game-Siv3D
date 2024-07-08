@@ -3,7 +3,7 @@
 #include "TextureManager.h"
 
 namespace {
-	constexpr float ROTATE_SPEED = Math::ToRadians( 120.f / 60.f );
+	constexpr float ROTATE_SPEED = Math::ToRadians( 80.f / 60.f );
 	constexpr float LEAVE_SPEED = 100.f / 60.f;
 }
 
@@ -16,8 +16,8 @@ SpiralBullet::SpiralBullet(GameObject* owner)
 	}
 
 	TextureManager& manager = TextureManager::GetInstance();
-	manager.LoadEmoji(U"🍥");
-	manager.TryGetTexture(U"🍥", _mainTexture);
+	manager.LoadEmoji(U"⚽");
+	manager.TryGetTexture(U"⚽", _mainTexture);
 }
 
 SpiralBullet::~SpiralBullet() {

@@ -3,7 +3,7 @@
 #include "Bullet.h"
 
 namespace {
-	constexpr int MAX = 100;
+	constexpr int MAX = 256;
 }
 
 BulletGenerator::BulletGenerator() {

@@ -2,6 +2,10 @@
 #include "Player.h"
 #include "TextureManager.h"
 
+namespace {
+	constexpr float SPEED = 5.f;
+}
+
 Player::Player(GameObject* owner)
 	: IComponent(owner) {
 	// 初期化子リストで初期化
@@ -40,7 +44,7 @@ void Player::update() {
 
 	if ( _transform ) {
 		if ( x || y ) {
-			auto vec = Vec2{ x, y }.normalized() * 3.f;
+			auto vec = Vec2{ x, y }.normalized() * SPEED;
 			_transform->addPosition( vec );
 		}
 	}
