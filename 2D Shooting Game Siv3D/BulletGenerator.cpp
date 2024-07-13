@@ -3,7 +3,7 @@
 #include "Bullet.h"
 
 namespace {
-	constexpr int MAX = 100;
+	constexpr int MAX = 256;
 }
 
 BulletGenerator::BulletGenerator() {
@@ -55,6 +55,10 @@ GameObject* BulletGenerator::fireBullet(
 
 	case BulletType::Involute: {
 		bulletObj.addComponent<InvoluteBullet>();
+	} break;
+
+	case BulletType::Spiral: {
+		bulletObj.addComponent<SpiralBullet>();
 	} break;
 
 	default:

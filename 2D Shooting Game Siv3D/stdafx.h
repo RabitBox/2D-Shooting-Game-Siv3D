@@ -23,3 +23,4 @@
 //========================================
 #include "SimpleBullet.h"
 #include "InvoluteBullet.h"
+#include "SpiralBullet.h"
